@@ -1,0 +1,49 @@
+$color: #333;
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: roboto, "source sans pro", lato, sans-serif;
+	color: $color;
+}
+
+.nav {
+	margin-top: 1rem;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 8rem;
+	clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
+
+	font-size: 1.5rem;
+	font-weight: bold;
+	background: $color;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.nav__link:link,
+.nav__link:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.gh-img {
+	fill: $color;
+}
