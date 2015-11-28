@@ -13,7 +13,7 @@ const postcssSimpleVars = require("postcss-simple-vars");
 const postcssSize = require("postcss-size");
 const autoprefixer = require("autoprefixer");
 
-const METALSMITH_DIR = __dirname + "/_metalsmith";
+const METALSMITH_DIR = __dirname + "/metalsmith";
 
 gulp.task("default", ["build"]);
 
@@ -34,7 +34,7 @@ gulp.task("build", () => {
 
 		postcssSimpleVars(),
 		postcssSize(),
-		autoprefixer,
+		autoprefixer({browsers: ["last 3 versions"]}),
 	]))
 
 	.use(metalHtmlMin({
