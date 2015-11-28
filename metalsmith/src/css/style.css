@@ -15,14 +15,12 @@ body {
 }
 
 .nav {
-	margin-top: 1rem;
-
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	height: 8rem;
-	clip-path: polygon(0 30%, 100% 0, 100% 70%, 0 100%);
+	clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
 
 	font-size: 1.5rem;
 	font-weight: bold;
