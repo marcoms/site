@@ -8,10 +8,11 @@ const metalPostcss = require("metalsmith-postcss");
 const metalHtmlMin = require("metalsmith-html-minifier");
 const metalCleanCss = require("metalsmith-clean-css");
 
-const postcssImport = require("postcss-import");
-const postcssSimpleVars = require("postcss-simple-vars");
-const postcssSize = require("postcss-size");
-const autoprefixer = require("autoprefixer");
+const cssImport = require("postcss-import");
+const cssSimpleVars = require("postcss-simple-vars");
+const cssSize = require("postcss-size");
+const cssEasings = require("postcss-easings");
+const cssPrefixer = require("autoprefixer");
 
 const METALSMITH_DIR = __dirname + "/metalsmith";
 
@@ -19,22 +20,24 @@ gulp.task("default", ["build"]);
 
 gulp.task("build", () => {
 	metalsmith(METALSMITH_DIR)
+	.ignore("**/img/**/.git")
 	.use(metalLayouts({
 		engine: "handlebars",
-		default: "layout.hbs",
+		default: "base.hbs",
 		directory: "layouts",
 		partials: "partials",
 		pattern: ["*.html"],
 	}))
 
 	.use(metalPostcss([
-		postcssImport({
+		cssImport({
 			path: `${METALSMITH_DIR}/src/css`,
 		}),
 
-		postcssSimpleVars(),
-		postcssSize(),
-		autoprefixer({browsers: ["last 3 versions"]}),
+		cssSimpleVars(),
+		cssSize(),
+		cssEasings(),
+		cssPrefixer({browsers: ["last 3 versions"]}),
 	]))
 
 	.use(metalHtmlMin({
@@ -51,8 +54,11 @@ gulp.task("build", () => {
 			process.exit(1);
 		}
 
-
 		const filesList = Object.keys(files);
 		console.log(`built ${filesList.length} files`, filesList);
 	});
+});
+
+gulp.task("watch", ["build"], () => {
+	gulp.watch("metalsmith/**/*", ["build"]);
 });
