@@ -34,17 +34,16 @@ body {
 	align-items: center;
 }
 
-hr {
+.main-splitter {
 	border: 0;
-	height: 1px;
-	width: 100%;
+	size: 100% 1px;
 	background: #ddd;
+	margin: 0.5em 0 0 0;
 }
 
 a {
 	color: $link-color;
 	padding: 2px;
-	border-radius: $corner-radius;
 }
 
 a:active {
@@ -70,26 +69,40 @@ a:active {
 	width: 100%;
 	max-width: 768px;
 
+	overflow: auto;
+
 	color: $color;
 
 	background: #fff;
 }
 
-.main > section {
+.description {
 	padding: 0 16px;
+}
+
+.links {
+	display: flex;
+	height: 3em;
+}
+
+.links > a {
+	flex-grow: 1;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.links > a:not(:last-child) {
+	box-shadow: 1px 0 #ddd;
 }
 
 .name {
 	height: 64px;
 
 	clip-path: polygon(0 0);
-	will-change: clip-path;
-	will-change: -webkit-clip-path;
+	will-change: clip-path, -webkit-clip-path;
 	animation: name-reveal 1280ms ease-out-quart 512ms forwards;
-}
-
-.copy {
-	margin: 16px 0;
 }
 
 @media (min-width: 512px) {
