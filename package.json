@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/marcoms/marcoms.github.io#readme",
   "devDependencies": {
-    "autoprefixer": "^6.1.1",
     "gulp": "^3.9.0",
     "handlebars": "^4.0.5",
     "metalsmith": "^2.1.0",

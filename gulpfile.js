@@ -12,7 +12,6 @@ const cssImport = require(`postcss-import`);
 const cssSimpleVars = require(`postcss-simple-vars`);
 const cssSize = require(`postcss-size`);
 const cssEasings = require(`postcss-easings`);
-const cssPrefixer = require(`autoprefixer`);
 
 const METALSMITH_DIR = __dirname + `/metalsmith`;
 
@@ -37,7 +36,6 @@ gulp.task(`build`, () => {
 		cssSimpleVars(),
 		cssSize(),
 		cssEasings(),
-		cssPrefixer({browsers: [`last 3 versions`]}),
 	]))
 
 	.use(metalHtmlMin({
